@@ -26,7 +26,7 @@ public class EmployeeDashBoardController {
 
     public Label lblMenu;
     public Label lblDescription;
-    public  Label lblUser;
+    public Label lblUser;
     public ImageView imgCustomer;
     public ImageView imgItem;
     public ImageView imgOrder;
@@ -34,21 +34,23 @@ public class EmployeeDashBoardController {
 
     public ImageView imgBack;
     public AnchorPane root;
-    private String loggedInUserId;
+    public static String loggedInUserId;
+    public static String userName;
 
-    public void setLoggedInUserId(String userId,String userName) {
+
+    public void setLoggedInUserId(String userId, String username) {
         this.loggedInUserId = userId;
-        lblUser.setText("Authorized User " + userId+"-"+userName);  // Set the user ID to the label
+        this.userName = username;
+        lblUser.setText("Authorized User " + loggedInUserId + "-" + userName);  // Set the user ID to the label
+
     }
 
-    public void initialize(URL url, ResourceBundle rb) {
-        FadeTransition fadeIn = new FadeTransition(Duration.millis(2000), root);
-        fadeIn.setFromValue(0.0);
-        fadeIn.setToValue(1.0);
-        fadeIn.play();
+    public void initialize() {
+        if (loggedInUserId != null && userName != null) {
+            lblUser.setText("Authorized User " + loggedInUserId + "-" + userName);
+        }
     }
 
-   
 
     public void backIconAction(MouseEvent mouseEvent) throws IOException {
         Stage stage = (Stage) lblMenu.getScene().getWindow();
@@ -73,35 +75,39 @@ public class EmployeeDashBoardController {
         if (event.getSource() instanceof ImageView) {
             ImageView icon = (ImageView) event.getSource();
 
-            Parent root = null;
+            if (icon != null && icon.getId() != null) {
 
-            switch (icon.getId()) {
-                case "imgCustomer":
-                    root = FXMLLoader.load(this.getClass().getResource("/view/CustomerForm.fxml"));
-                    break;
-//                case "imgItem":
-//                    root = FXMLLoader.load(this.getClass().getResource("/view/ManageItemForm.fxml"));
-//                    break;
+                Parent root = null;
+                FXMLLoader loader = new FXMLLoader();
+                switch (icon.getId()) {
+                    case "imgCustomer":
+                        root = loader.load(this.getClass().getResource("/view/CustomerForm.fxml"));
+                        break;
+                    case "imgItem":
+                        root = loader.load(this.getClass().getResource("/view/ItemForm.fxml"));
+                        break;
 //                case "imgOrder":
 //                    root = FXMLLoader.load(this.getClass().getResource("/view/PlaceOrderForm.fxml"));
 //                    break;
 //                case "imgViewOrders":
 //                    root = FXMLLoader.load(this.getClass().getResource("/view/SearchOrdersForm.fxml"));
 //                    break;
+                }
+
+                if (root != null) {
+                    Scene subScene = new Scene(root);
+                    Stage primaryStage = (Stage) this.root.getScene().getWindow();
+                    primaryStage.setScene(subScene);
+                    primaryStage.sizeToScene();
+                    primaryStage.centerOnScreen();
+
+                    TranslateTransition tt = new TranslateTransition(Duration.millis(350), subScene.getRoot());
+                    tt.setFromX(-subScene.getWidth());
+                    tt.setToX(0);
+                    tt.play();
+                }
             }
 
-            if (root != null) {
-                Scene subScene = new Scene(root);
-                Stage primaryStage = (Stage) this.root.getScene().getWindow();
-                primaryStage.setScene(subScene);
-                primaryStage.sizeToScene();
-                primaryStage.centerOnScreen();
-
-                TranslateTransition tt = new TranslateTransition(Duration.millis(350), subScene.getRoot());
-                tt.setFromX(-subScene.getWidth());
-                tt.setToX(0);
-                tt.play();
-            }
         }
 
     }

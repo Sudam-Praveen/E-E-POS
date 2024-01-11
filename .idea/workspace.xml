@@ -1,15 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f34742d6-b24b-49cf-a5fe-76510b9f9177" name="Changes" comment="" />
+    <list default="true" id="f34742d6-b24b-49cf-a5fe-76510b9f9177" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/Final Project/src/main/resources/view/AdminDashBoard.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/Final Project/src/main/resources/view/AdminDashBoard.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Final Project/src/main/resources/view/CustomerForm.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/Final Project/src/main/resources/view/CustomerForm.fxml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 1
-}]]></component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/Final Project" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 1
+}</component>
   <component name="ProjectId" id="2ahinYujTtuaAuWyH6IofpNHbfv" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -20,7 +26,8 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "E:/iCM-ICET/JAVAFX/JAVAFX Final Project/final project",
+    "git-widget-placeholder": "master",
+    "last_opened_file_path": "E:/iCM-ICET/JAVAFX/JAVAFX Final Project/final project/Final Project",
     "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.0",
     "project.structure.side.proportion": "0.0",
@@ -36,6 +43,7 @@
       <option name="presentableId" value="Default" />
       <updated>1704777378474</updated>
       <workItem from="1704777379735" duration="102000" />
+      <workItem from="1704948941931" duration="151000" />
     </task>
     <servers />
   </component>
